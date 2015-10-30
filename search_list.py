@@ -22,7 +22,7 @@ f.write("")
 
 for i in list_uniq: 
     f = open(fileName, 'a')
-    f.writelines(i)
+    f.writelines(i.replace('\\', '/'))
     f.writelines('\n')
 
 f.close
