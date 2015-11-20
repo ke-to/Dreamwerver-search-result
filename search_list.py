@@ -1,28 +1,31 @@
 # -*- coding: utf-8 -*- 
 
-import xml.dom.minidom
-import os,glob
-import sys
+import xml.dom.minidom,os,sys,glob,re
 
 li = []
-if __name__ == "__main__":
-    dom = xml.dom.minidom.parse("ResultsReport.xml") #Your xml File
-    for url in dom.getElementsByTagName("mm_file"): #Parameter name to get
-        print (url.firstChild.data)
-        li.append(url.firstChild.data)
+fileList = glob.glob("*.xml")
+print(fileList)
 
-list_uniq2 = list(set(li))
-list_uniq = sorted(list_uniq2)
-print (list_uniq)
+for xmlFile in fileList:
+    if __name__ == "__main__":
+        print(xmlFile)
+        dom = xml.dom.minidom.parse(xmlFile) #Your xml File
+        for url in dom.getElementsByTagName("mm_file"): #Parameter name to get
+            print (url.firstChild.data)
+            li.append(url.firstChild.data)
 
-fileName = 'test.txt'
+    list_uniq2 = list(set(li))
+    list_uniq = sorted(list_uniq2)
+    print (list_uniq)
 
-f = open(fileName, 'w')
-f.write("")
+    fileName = '%s.txt' % xmlFile
 
-for i in list_uniq: 
-    f = open(fileName, 'a')
-    f.writelines(i.replace('\\', '/'))
-    f.writelines('\n')
+    f = open(fileName, 'w')
+    f.write("")
 
-f.close
+    for i in list_uniq: 
+        f = open(fileName, 'a')
+        f.writelines(i.replace('\\', '/'))
+        f.writelines('\n')
+
+    f.close
