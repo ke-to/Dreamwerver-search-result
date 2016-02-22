@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*- 
+#URLの重複なしリストを出力する場合
 
 import xml.dom.minidom,os,sys,glob,re
 

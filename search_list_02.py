@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*- 
+#URLと該当箇所のリストを出力する場合
 
 import xml.dom.minidom,os,sys,glob,re
 
