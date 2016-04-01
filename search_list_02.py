@@ -25,7 +25,7 @@ for xmlFile in fileList:
 
     for i in list_uniq: 
         f = open(fileName, 'a')
-        f.writelines(i[0].replace('\\', '/'))
+        f.writelines(i[0].replace('\\', '/').encode('utf-8'))
         f.writelines("\t")
         f.writelines(i[1].encode('utf-8'))
         f.writelines('\n')
