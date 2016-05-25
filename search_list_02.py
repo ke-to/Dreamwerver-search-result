@@ -3,11 +3,11 @@
 
 import xml.dom.minidom,os,sys,glob,re
 
-li = []
 fileList = glob.glob("*.xml")
 print(fileList)
 
 for xmlFile in fileList:
+    li = []
     if __name__ == "__main__":
         #print(xmlFile)
         dom = xml.dom.minidom.parse(xmlFile) #Your xml File
